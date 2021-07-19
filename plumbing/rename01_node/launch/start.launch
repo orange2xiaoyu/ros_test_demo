@@ -1,0 +1,15 @@
+<!-- 实现键盘控制乌龟运动 -->
+<launch>
+    <!-- 方法1：将乌龟的话题设置与键盘控制一致 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="t1">
+        <remap from="/turtle1/cmd_vel" to="/cmd_vel" />
+    </node>
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="key" />
+    <!-- 方法2：将键盘控制话题设置与乌龟一致 -->
+    <node pkg="turtlesim" type="turtlesim_node" name="t1" />
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="key">
+        <remap from="/cmd_vel" to="/turtle1/cmd_vel" />
+    </node>
+
+
+</launch>

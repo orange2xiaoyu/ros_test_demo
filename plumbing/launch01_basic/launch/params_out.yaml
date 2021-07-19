@@ -1,0 +1,3 @@
+roslaunch:
+  uris: {host_ca3__36023: 'http://ca3:36023/'}
+run_id: 774e101e-e601-11eb-8bfc-e454e875e6dc
