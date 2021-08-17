@@ -1,0 +1,14 @@
+<launch>
+    <!-- 1.启动nodelet manager -->
+    <node pkg="nodelet"  type="nodelet" args="manager" name="dasun" output="screen" />
+    <!-- 2.添加节点 xiaowang, 参数是100 -->
+    <node pkg="nodelet"  type="nodelet" args="load nodelet_tutorial_math/Plus dasun" name="xiaowang" output="screen" >
+        <param name="value" value="100" />
+    </node>
+    <!-- 3.添加节点 ergou, 参数是-50，xiaowang 的输出作为 ergou的输入 -->
+    <node pkg="nodelet"  type="nodelet" args="load nodelet_tutorial_math/Plus dasun" name="ergou" output="screen" >
+        <param name="value" value="-50" />
+        <remap from="/ergou/in" to="/xiaowang/out" />
+    </node>
+
+</launch>
